@@ -1896,6 +1896,23 @@ body {
     font-size: var(--font-size-sm);
     line-height: 1.5;
     margin: 0;
+    margin-bottom: var(--spacing-2);
+}
+
+.cookie-links {
+    margin-top: var(--spacing-2);
+    font-size: var(--font-size-xs);
+}
+
+.cookie-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.cookie-links a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
 }
 
 .cookie-buttons {
