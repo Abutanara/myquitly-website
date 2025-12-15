@@ -113,7 +113,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Check if user has already made a choice
     if (!localStorage.getItem('cookieConsent')) {
         if (cookieBanner) {
-            cookieBanner.style.display = 'block';
+            // Show banner after a short delay for better UX
+            setTimeout(() => {
+                cookieBanner.classList.add('show');
+            }, 1000);
         }
     }
 
@@ -121,7 +124,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (cookieAccept) {
         cookieAccept.addEventListener('click', () => {
             localStorage.setItem('cookieConsent', 'accepted');
-            if (cookieBanner) cookieBanner.style.display = 'none';
+            if (cookieBanner) cookieBanner.classList.remove('show');
             // Initialize analytics here
             console.log('Cookies accepted - analytics initialized');
         });
@@ -130,7 +133,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (cookieReject) {
         cookieReject.addEventListener('click', () => {
             localStorage.setItem('cookieConsent', 'rejected');
-            if (cookieBanner) cookieBanner.style.display = 'none';
+            if (cookieBanner) cookieBanner.classList.remove('show');
             console.log('Cookies rejected');
         });
     }
@@ -160,7 +163,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             localStorage.setItem('analyticsCookies', analytics);
             localStorage.setItem('marketingCookies', marketing);
             
-            if (cookieBanner) cookieBanner.style.display = 'none';
+            if (cookieBanner) cookieBanner.classList.remove('show');
             if (cookieModal) cookieModal.style.display = 'none';
             
             console.log('Cookie preferences saved:', { analytics, marketing });
