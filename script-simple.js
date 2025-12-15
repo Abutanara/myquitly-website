@@ -107,8 +107,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cookieAccept) {
         cookieAccept.addEventListener('click', () => {
             localStorage.setItem('cookieConsent', 'accepted');
+            localStorage.setItem('analyticsCookies', 'true');
+            localStorage.setItem('marketingCookies', 'true');
+            
+            // Checkboxen aktivieren (falls Modal offen ist)
+            const analyticsCheckbox = document.getElementById('analytics-cookies');
+            const marketingCheckbox = document.getElementById('marketing-cookies');
+            if (analyticsCheckbox) analyticsCheckbox.checked = true;
+            if (marketingCheckbox) marketingCheckbox.checked = true;
+            
             if (cookieBanner) cookieBanner.classList.remove('show');
             // Initialize analytics here
+            if (typeof updateAnalyticsConsent === 'function') {
+                updateAnalyticsConsent();
+            }
             console.log('Cookies accepted - analytics initialized');
         });
     }
@@ -116,7 +128,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cookieReject) {
         cookieReject.addEventListener('click', () => {
             localStorage.setItem('cookieConsent', 'rejected');
+            localStorage.setItem('analyticsCookies', 'false');
+            localStorage.setItem('marketingCookies', 'false');
+            
+            // Checkboxen deaktivieren (falls Modal offen ist)
+            const analyticsCheckbox = document.getElementById('analytics-cookies');
+            const marketingCheckbox = document.getElementById('marketing-cookies');
+            if (analyticsCheckbox) analyticsCheckbox.checked = false;
+            if (marketingCheckbox) marketingCheckbox.checked = false;
+            
             if (cookieBanner) cookieBanner.classList.remove('show');
+            // Ensure analytics are not initialized
+            if (typeof updateAnalyticsConsent === 'function') {
+                updateAnalyticsConsent();
+            }
             console.log('Cookies rejected');
         });
     }
@@ -124,6 +149,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cookieDetails) {
         cookieDetails.addEventListener('click', () => {
             if (cookieModal) {
+                // Gespeicherte Präferenzen laden (falls bereits vorhanden)
+                // Wenn keine Präferenzen vorhanden, bleiben Checkboxen deaktiviert (Opt-in Prinzip)
+                const savedAnalytics = localStorage.getItem('analyticsCookies');
+                const savedMarketing = localStorage.getItem('marketingCookies');
+                
+                const analyticsCheckbox = document.getElementById('analytics-cookies');
+                const marketingCheckbox = document.getElementById('marketing-cookies');
+                
+                if (analyticsCheckbox) {
+                    // Nur setzen, wenn bereits eine Präferenz gespeichert ist
+                    // Ansonsten bleibt es deaktiviert (DSGVO-konform: Opt-in)
+                    analyticsCheckbox.checked = savedAnalytics === 'true';
+                }
+                if (marketingCheckbox) {
+                    marketingCheckbox.checked = savedMarketing === 'true';
+                }
+                
                 cookieModal.style.display = 'block';
             }
         });
