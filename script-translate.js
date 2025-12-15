@@ -88,6 +88,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             const store = btn.getAttribute('data-store');
             console.log('App store button clicked, store:', store);
             
+            // Track app store click
+            if (typeof trackAppStoreClick === 'function') {
+                trackAppStoreClick(store);
+            }
+            
             if (store && appStoreLinks[store]) {
                 console.log(`Opening ${store} app store:`, appStoreLinks[store]);
                 window.open(appStoreLinks[store], '_blank');
@@ -124,8 +129,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (cookieAccept) {
         cookieAccept.addEventListener('click', () => {
             localStorage.setItem('cookieConsent', 'accepted');
+            localStorage.setItem('analyticsCookies', 'true');
+            localStorage.setItem('marketingCookies', 'true');
             if (cookieBanner) cookieBanner.classList.remove('show');
-            // Initialize analytics here
+            // Initialize analytics after consent
+            if (typeof updateAnalyticsConsent === 'function') {
+                updateAnalyticsConsent();
+            }
             console.log('Cookies accepted - analytics initialized');
         });
     }
@@ -133,7 +143,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (cookieReject) {
         cookieReject.addEventListener('click', () => {
             localStorage.setItem('cookieConsent', 'rejected');
+            localStorage.setItem('analyticsCookies', 'false');
+            localStorage.setItem('marketingCookies', 'false');
             if (cookieBanner) cookieBanner.classList.remove('show');
+            // Ensure analytics are not initialized
+            if (typeof updateAnalyticsConsent === 'function') {
+                updateAnalyticsConsent();
+            }
             console.log('Cookies rejected');
         });
     }
@@ -165,6 +181,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             if (cookieBanner) cookieBanner.classList.remove('show');
             if (cookieModal) cookieModal.style.display = 'none';
+            
+            // Update analytics based on new preferences
+            if (typeof updateAnalyticsConsent === 'function') {
+                updateAnalyticsConsent();
+            }
             
             console.log('Cookie preferences saved:', { analytics, marketing });
         });
