@@ -73,28 +73,45 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     });
 
-    // App Store Links
+    // App Store Links (Fallback, falls kein href im HTML vorhanden ist)
     const appStoreLinks = {
-        ios: 'https://apps.apple.com/app/myquitly/id123456789', // Replace with your actual iOS App Store URL
-        android: 'https://play.google.com/store/apps/details?id=com.myquitly.quitsmokingapp' // Replace with your actual Google Play URL
+        ios: 'https://apps.apple.com/app/my-quitly-quit-smoking/id6754508949?mt=8',
+        android: 'https://play.google.com/store/apps/details?id=com.myquitly.quitsmokingapp'
     };
     
     // Add click handlers for app store buttons
     document.querySelectorAll('.app-store-btn, .app-store-link').forEach(btn => {
         btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            
             // Get the store type from data-store attribute
             const store = btn.getAttribute('data-store');
-            console.log('App store button clicked, store:', store);
+            const href = btn.getAttribute('href');
+            
+            console.log('App store button clicked, store:', store, 'href:', href);
             
             // Track app store click
             if (typeof trackAppStoreClick === 'function') {
                 trackAppStoreClick(store);
             }
             
+            // Wenn der Button disabled ist, nicht weiter machen
+            if (btn.classList.contains('disabled')) {
+                e.preventDefault();
+                showNotification('App store links will be available soon!', 'info');
+                return;
+            }
+            
+            // Wenn bereits ein gültiger Link im href vorhanden ist (nicht #), diesen verwenden
+            if (href && href !== '#' && href.startsWith('http')) {
+                // Link ist bereits vorhanden, einfach öffnen (kein preventDefault)
+                console.log(`Using existing href: ${href}`);
+                // window.open wird automatisch durch den Link ausgelöst
+                return; // Lass den Browser den Link normal öffnen
+            }
+            
+            // Fallback: Link aus JavaScript-Objekt verwenden
+            e.preventDefault();
             if (store && appStoreLinks[store]) {
-                console.log(`Opening ${store} app store:`, appStoreLinks[store]);
+                console.log(`Opening ${store} app store (fallback):`, appStoreLinks[store]);
                 window.open(appStoreLinks[store], '_blank');
             } else {
                 console.log('No valid store found, showing notification');
