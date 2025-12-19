@@ -131,7 +131,7 @@ function trackEvent(eventName, eventParams = {}) {
 function trackAppStoreClick(store) {
     trackEvent('app_store_click', {
         store: store, // 'ios' or 'android'
-        app_name: 'MyQuitly'
+        app_name: 'My Quitly'
     });
 }
 

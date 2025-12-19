@@ -1,4 +1,4 @@
-# MyQuitly - Vollständige App-Dokumentation für Figma Make
+# My Quitly - Vollständige App-Dokumentation für Figma Make
 
 **Erstellt:** 2025  
 **Version:** 1.0  
@@ -9,7 +9,7 @@
 # 📱 1. APP-ÜBERSICHT & SINN
 
 ## 1.1 App-Zweck
-**MyQuitly** ist eine mobile App zur schrittweisen Raucher-Reduktion mit dem Ziel der vollständigen Rauchentwöhnung. Die App begleitet Nutzer durch einen personalisierten Reduktionsplan bis zum selbstgewählten Aufhörtag.
+**My Quitly** ist eine mobile App zur schrittweisen Raucher-Reduktion mit dem Ziel der vollständigen Rauchentwöhnung. Die App begleitet Nutzer durch einen personalisierten Reduktionsplan bis zum selbstgewählten Aufhörtag.
 
 ### Kernphilosophie
 - **Schrittweise Reduktion** statt sofortiger Kaltentzug
@@ -2219,7 +2219,7 @@ Automatisch basierend auf Tagesziel:
 
 **ENDE DER DOKUMENTATION**
 
-Diese Dokumentation enthält alle notwendigen Informationen für eine 1:1 Visualisierung der MyQuitly-App in Figma Make für Android und iOS.
+Diese Dokumentation enthält alle notwendigen Informationen für eine 1:1 Visualisierung der My Quitly-App in Figma Make für Android und iOS.
 
 **Version:** 1.0  
 **Zuletzt aktualisiert:** 2025

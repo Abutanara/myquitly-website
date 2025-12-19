@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // App Store Links (Fallback, falls kein href im HTML vorhanden ist)
     const appStoreLinks = {
         ios: 'https://apps.apple.com/app/my-quitly-quit-smoking/id6754508949?mt=8',
-        android: 'https://play.google.com/store/apps/details?id=com.myquitly.quitsmokingapp'
+        android: 'https://play.google.com/store/apps/details?id=com.myquitly.quitsmoking'
     };
     
     // Add click handlers for app store buttons
@@ -96,7 +96,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Wenn der Button disabled ist, nicht weiter machen
             if (btn.classList.contains('disabled')) {
                 e.preventDefault();
-                showNotification('App store links will be available soon!', 'info');
+                const msg =
+                    document.documentElement.lang === 'de'
+                        ? 'Android folgt bald – iOS ist bereits verfügbar.'
+                        : 'Android is coming soon — iOS is already available.';
+                showNotification(msg, 'info');
                 return;
             }
             

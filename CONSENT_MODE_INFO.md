@@ -38,7 +38,7 @@
 
 ## 💡 Empfehlung
 
-**Für deine MyQuitly Website:**
+**Für deine My Quitly Website:**
 
 ### Option A: Aktuell bleiben (Einfach) ✅
 - **Vorteil:** Einfach, funktioniert, DSGVO-konform

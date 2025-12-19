@@ -2,7 +2,7 @@
 
 ## 📋 Übersicht
 
-Diese Anleitung zeigt dir, wie du Google Analytics 4 für deine MyQuitly Website einrichtest.
+Diese Anleitung zeigt dir, wie du Google Analytics 4 für deine My Quitly Website einrichtest.
 
 ---
 
@@ -14,7 +14,7 @@ Diese Anleitung zeigt dir, wie du Google Analytics 4 für deine MyQuitly Website
 
 2. **Account erstellen:**
    - Klicke auf "Messung starten" oder "Start measuring"
-   - Gib einen **Account-Namen** ein (z.B. "Stargate Innovationhub" oder "MyQuitly")
+   - Gib einen **Account-Namen** ein (z.B. "Stargate Innovationhub" oder "My Quitly")
    - Wähle die gewünschten Kontoeinstellungen
    - Klicke auf "Weiter"
 
@@ -23,7 +23,7 @@ Diese Anleitung zeigt dir, wie du Google Analytics 4 für deine MyQuitly Website
 ## 🏢 Schritt 2: Property erstellen
 
 1. **Property-Name eingeben:**
-   - Name: **"MyQuitly Website"** (oder wie du möchtest)
+   - Name: **"My Quitly Website"** (oder wie du möchtest)
    - Zeitzone: **Deutschland (GMT+1)** oder deine Zeitzone
    - Währung: **EUR** (Euro)
 
@@ -49,7 +49,7 @@ Diese Anleitung zeigt dir, wie du Google Analytics 4 für deine MyQuitly Website
 
 2. **Website-Informationen eingeben:**
    - **Website-URL:** `https://myquitly.stargate-innovationhub.com`
-   - **Stream-Name:** "MyQuitly Website" (oder wie du möchtest)
+   - **Stream-Name:** "My Quitly Website" (oder wie du möchtest)
    - Klicke auf **"Stream erstellen"**
 
 3. **Measurement ID notieren:**

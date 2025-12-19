@@ -1,4 +1,4 @@
-# MyQuitly - Alle relevanten Codes für Figma Make
+# My Quitly - Alle relevanten Codes für Figma Make
 
 **Erstellt:** 2025  
 **Zweck:** Code-Referenz für 1:1 Visualisierung in Figma Make  
@@ -2144,7 +2144,7 @@ export function ProgressBar({
       backgroundColor: colors.backgroundCard,      // #242424
       height: 56,
     },
-    headerLeft: () => <MyQuitlyLogo />,           // Logo-Komponente
+    headerLeft: () => <My QuitlyLogo />,           // Logo-Komponente
     headerTitle: () => <HeaderTitle />,            // "My Quitly"
     headerRight: () => <ProfileButton />,          // 👤 Profil-Button
   }}
@@ -2182,7 +2182,7 @@ export function ProgressBar({
 
 ### Header Logo
 ```typescript
-function MyQuitlyLogo() {
+function My QuitlyLogo() {
   return (
     <View style={{
       marginLeft: 16,

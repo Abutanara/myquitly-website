@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // App Store Links - Update these with your actual app store URLs
     const appStoreLinks = {
         ios: 'https://apps.apple.com/app/myquitly/id123456789', // Replace with your actual iOS App Store URL
-        android: 'https://play.google.com/store/apps/details?id=com.myquitly.quitsmokingapp' // Replace with your actual Google Play URL
+        android: 'https://play.google.com/store/apps/details?id=com.myquitly.quitsmoking' // Replace with your actual Google Play URL
     };
     
     // Add click handlers for app store buttons

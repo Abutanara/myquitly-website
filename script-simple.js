@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // App Store Links (Fallback, falls kein href im HTML vorhanden ist)
     const appStoreLinks = {
         ios: 'https://apps.apple.com/app/my-quitly-quit-smoking/id6754508949?mt=8',
-        android: 'https://play.google.com/store/apps/details?id=com.myquitly.quitsmokingapp'
+        android: 'https://play.google.com/store/apps/details?id=com.myquitly.quitsmoking'
     };
     
     // Add click handlers for app store buttons
